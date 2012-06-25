@@ -1,0 +1,89 @@
+'''
+Seth Fiawoo
+MIT-AITI 2012
+Lab05: Python Functions
+'''
+#Problem 2
+def factorial(num):
+    if(num<=0):
+        return 1
+    else:
+        return num*factorial(num-1)
+print 'The factorial is',factorial(5)
+
+#Problem 3
+def fibonacci(num):
+    fibo=[]
+    fibo.append(1)
+    if(num<=1):
+        return fibo
+    fibo.append(1)
+    if(num==2):
+        return fibo
+    if (num>2):
+        for i in range(2,num):
+            temp=fibo[i-1]+fibo[i-2]
+            fibo.append(temp)
+    return fibo
+print 'The fibonacci numbers are',fibonacci(3)
+
+#Problem 4
+def prime(num):
+    prim=True
+    for i in range(2,int(num**0.5)+1):
+        if num%i==0:
+            prim=False
+            break
+    return prim
+print prime(9)
+
+#Problem 5
+def isPalindrome(phrase):  
+    palindrome=True
+    length=len(phrase)
+    if len(phrase)%2!=0:
+        mid=(len(phrase)/2)+1
+    else:
+        mid=(len(phrase)/2)
+    for i in range(mid):
+        if phrase[i-length]!=phrase[i]:
+            palindrome=False
+            break
+    return palindrome
+
+print isPalindrome('maam')
+    
+#Problem 6
+def isSubstring(phrase1,phrase2):
+    substring=True
+    length1=len(phrase1)
+    length2=len(phrase2)
+    for i in range(length2):
+        if phrase1[0]==phrase2[i]:
+            for j in range (1,length1):
+                print phrase1[j],phrase2[i+j]
+                if phrase1[j]!=phrase2[i+j]:
+                    substring=False
+                    break
+            break
+       
+    return substring
+
+print isSubstring('ooba','barfoobar')
+            
+#Problem 7
+def maxScore(me,Fred,Jill):
+    score=0
+    length=len(me)
+    for i in range(length):
+        if me[i]!=Fred[i] or me[i]!=Jill[i]:
+            print Fred[i],Jill[i]
+            if Fred[i]==Jill[i]:
+                score+=2
+            else:
+                score+=1
+    return score
+
+print maxScore('AAABCDA','ADDBACA','ADCADDC')
+            
+                    
